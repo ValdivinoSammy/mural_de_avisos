@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    max-width: 100vw;
+    min-height: 100vh;
+
+    background-image: url('https://images.unsplash.com/photo-1516797045820-6edca89b2830?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhcmslMjBzcGFjZXxlbnwwfHwwfHx8MA%3D%3D');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    max-width: 100vw;
+
+    padding: 10px;
+    margin-bottom: 20px;
+
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+
+    background: linear-gradient(to right, rgb(194, 188, 163), rgb(167, 172, 97), #6f9aa5);
+    border-bottom: 2px solid #555;
+}
+
+#container {
+    margin: auto;
+    padding: 10px;
+
+    max-width: 840px;
+
+}
+
+.form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.campoTxt {
+    padding: 10px;
+    margin-right: 10%;
+
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #666;
+
+}
+
+.form button {
+    padding: 10px;
+
+    font-weight: bold;
+
+    border: none;
+    box-shadow: 3px 3px 10px #777;
+    border-radius: 5px;
+
+    background: linear-gradient(to right, rgb(194, 188, 163), rgb(167, 172, 97));
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.titmur {
+    color: white;
+}
+
+#mural div {
+    min-height: 80px;
+
+    border: 2px solid #999;
+    border-radius: 3px;
+
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#mural div h2 {
+    background: linear-gradient(to right, rgb(194, 188, 163), rgb(167, 172, 97), #6f9aa5);
+    border-bottom: 2px solid #999;
+
+    padding: 5px 0px 0px 10px;
+
+    min-height: 40px;
+    width: 100%;
+}
+
+#mural div p {
+    padding: 10px 5px 5px 5px;
+    flex: 1;
+
+    line-height: 24px;
+    background-color: white;
+}
+
+
+/* card de del */
+
+.confirDel {
+    min-width: 310px;
+    max-height: 200px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: antiquewhite;
+    border-radius: 25px;
+    border: 2px solid #777;
+
+    text-align: center;
+
+    padding: 20px;  
+}
+
+.confirDel h3 {
+    margin-bottom: 10%;
+}
+
+.confirDel div {
+    min-width: 30%;
+
+    margin-right: 10px;
+    padding: 10px;
+
+    display: inline-block;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.confirDel div:hover {
+    cursor: pointer;
+    background-color: rgb(212, 204, 188);
+
+    transition: all 500ms;
+}
+
+/* ajuste para mobile */
+
+@media screen and (max-width:620px) {
+    .campoTxt {
+        width: 200px;
+
+        margin-right: 0;
+    }
+
+    .form button {
+        width: 200px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 10px;
+        padding: 10px;
+    }
+}
