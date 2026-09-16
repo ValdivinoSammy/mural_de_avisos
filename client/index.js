@@ -7,7 +7,7 @@ let cardOn = false;
 function publicar(){
     if(!inputDescri.value || !inputTitulo.value){return}
 
-    fetch("/publicar", {
+    fetch("https://mural-de-avisos-z3c1.onrender.com/publicar", {
         method:"POST",
 
         headers:{"Content-Type": "application/json"},
@@ -29,7 +29,7 @@ function publicar(){
 };
 
 function busquePosts() {
-    fetch("/publicados")
+    fetch("https://mural-de-avisos-z3c1.onrender.com/publicados")
         .then(res => res.json())
         .then(posts => {
             mural.innerHTML = "";
@@ -85,7 +85,7 @@ function removeCard(card){
 }
 
 function deletar(esse, card){
-    fetch("/delete", {method:"DELETE",
+    fetch("https://mural-de-avisos-z3c1.onrender.com/delete", {method:"DELETE",
 
     headers:{"Content-Type": "application/json"},
     body: JSON.stringify({
