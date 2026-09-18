@@ -34,7 +34,7 @@ function logar() {
     signInWithEmailAndPassword(auth, valorEmail, valorSenha)
         .then(credencialDoUser => {
             console.log(credencialDoUser.user);
-            window.location.href = "/";
+            window.location.href = "../";
         })
         .catch(error => {
             console.log("Houve um erro no login:", error);
@@ -50,7 +50,7 @@ function criarUser() {
     .then( (credencialDoUser)=>{
         console.log("Usuario criado!");
         console.log(credencialDoUser.user);
-        window.location.href = "/";
+        window.location.href = "../";
     }).catch((error)=>{
         console.log("houve um erro:", error)
         alert("Não foi possivel concluir a criação da sua conta, Verifique seu email e certifique se de que sua senha tenha no mínimo 6 caracteres")
