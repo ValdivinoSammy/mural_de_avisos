@@ -21,9 +21,10 @@ onAuthStateChanged(auth, async (user) => {
 
     btnLoginIndex.style.display = "none";
     btnDeslogarIndex.style.display = "";
-    busquePosts();
+    
     const resultadoToken = await user.getIdTokenResult(true);
     const eAdmin = resultadoToken.claims.admin === true;
+    busquePosts(eAdmin);
 
     if (eAdmin) {
         formDiv.style.display = "";
@@ -60,7 +61,7 @@ document.querySelector("#publicar").addEventListener("click", async ()=> {
 
 });
 
-async function busquePosts() {
+async function busquePosts(eAdmin) {
 
     const token = await auth.currentUser.getIdToken();
 
@@ -74,7 +75,6 @@ async function busquePosts() {
 
                 const div = document.createElement("div");
                 div.id = post.id;
-                div.addEventListener("click", avisoDel);
                 mural.appendChild(div);
 
                 const tituloh2 = document.createElement("h2");
@@ -84,6 +84,8 @@ async function busquePosts() {
                 const descrição = document.createElement("p");
                 div.appendChild(descrição);
                 descrição.innerHTML = post.descri;
+
+                if(eAdmin){div.addEventListener("click", avisoDel);}
             })
         })
 };
