@@ -146,6 +146,7 @@ async function deletar(esse, card) {
 btnDeslogarIndex.addEventListener("click", () => {
     signOut(auth).then(() => {
         formDiv.style.display = "none";
+        location.reload();
     }).catch(error => {
         console.log("houve algum erro:", error)
     });
