@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-let posts = require('../dados/posts');
+const db = require('../firebase-adm/firebase-adm');
 
 
-router.delete("/", (req, res)=>{
+router.delete("/", async (req, res)=>{
     let id = req.body.id;
-    posts.deletePost(id);
+    await db.collection("posts").doc(id).delete()
     res.send();
 })
 

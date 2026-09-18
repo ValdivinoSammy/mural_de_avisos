@@ -1,17 +1,15 @@
 const express = require('express');
-const router = express.Router()
-let posts = require('../dados/posts');
+const router = express.Router();
+const db = require('../firebase-adm/firebase-adm');
 
-router.post("/", (req, res) => {  
+router.post("/", async (req, res) => {  
 
-    let titulo = req.body.titulo;
-    let descri = req.body.descri;
-    posts.novoPost(titulo, descri);
+    await db.collection("posts").add({
+        titulo: req.body.titulo,
+        descri: req.body.descri
+    })
     res.send();
 })
-
-
-
 
 
 module.exports = router;

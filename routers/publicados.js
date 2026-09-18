@@ -1,10 +1,16 @@
 const express = require('express');
 const router = express.Router();
-let posts = require('../dados/posts');
+const db = require('../firebase-adm/firebase-adm');
 
+router.get("/", async (req, res) => {
 
-router.get("/", (req, res) => {
-    res.json(posts.pegueTodos());
+    const snapshot = await db.collection("posts").get();
+    let posts = snapshot.docs.map(doc=>({
+          id: doc.id,
+          titulo: doc.data().titulo,
+          descri: doc.data().descri,
+        }))
+    res.json(posts);
 })
 
 
