@@ -10,6 +10,7 @@ const inputDescri = document.querySelector('[name="descri"]');
 const mural = document.querySelector("#mural");
 
 let cardOn = false;
+let adminIsTrue;
 
 onAuthStateChanged(auth, async (user) => {
 
@@ -23,10 +24,10 @@ onAuthStateChanged(auth, async (user) => {
     btnDeslogarIndex.style.display = "";
     
     const resultadoToken = await user.getIdTokenResult(true);
-    const eAdmin = resultadoToken.claims.admin === true;
-    busquePosts(eAdmin);
+    adminIsTrue = resultadoToken.claims.admin === true;
+    busquePosts(adminIsTrue);
 
-    if (eAdmin) {
+    if (adminIsTrue) {
         formDiv.style.display = "";
     }
 
@@ -53,7 +54,7 @@ document.querySelector("#publicar").addEventListener("click", async ()=> {
         if (res.ok) {
             inputTitulo.value = "";
             inputDescri.value = "";
-            busquePosts();
+            busquePosts(adminIsTrue);
         } else {
             alert("Houve algum erro ao tentar enviar o seu post")
         }
@@ -139,7 +140,7 @@ async function deletar(esse, card) {
         })
     }).then(res => {
         if (res.ok) {
-            busquePosts();
+            busquePosts(adminIsTrue);
         }
     })
 

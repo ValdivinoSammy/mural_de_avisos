@@ -41,11 +41,19 @@ async function verificarUsuario(req, res, next) {
 
 function verificarAdmin(req, res, next) {
 
+    console.log("EMAIL:", req.usuario.email);
+    console.log("ADMIN:", req.usuario.admin);
+    
     if (req.usuario.admin !== true) {
+
+        console.log("NEGADO");
+
         return res.status(403).json({
             erro: "Acesso permitido somente para administradores"
         });
     }
+
+    console.log("LIBERADO");
 
     next();
 }
